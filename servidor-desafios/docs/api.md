@@ -1,5 +1,5 @@
-# Reference
+# API
 
-::: softdes.py
+::: softdes
     rendering:
       show_source: false

@@ -14,15 +14,16 @@ import hashlib
 
 DBNAME = './quiz.db'
 
-def lambda_handler(event, context):
+def lambda_handler(event: dict, context: None)-> str:
     """Executa o código enviado pelo aluno e testa de acordo com as repostas esperadas
     
-    Arguments:
-        event {dict} -- dicionário que possui as informações como o código do aluno, as respostas esperadas, os argumentos da funcao e o feedback.
-        context {unknown} -- não esta sendo usado
+    Args:
+        event: dicionário que possui as informações como o código do aluno, as respostas esperadas, os argumentos da funcao e o feedback.
+        context: não esta sendo usado
+        
     
     Returns:
-        [str] -- uma string com os testes executados e seus resultados.
+        uma string com os testes executados e seus resultados.
     """    
     try:
         import json 
@@ -54,27 +55,27 @@ def lambda_handler(event, context):
     except:
         return "Função inválida."
 
-def converteData(orig):
+def converteData(orig: str) -> str:
     """Parser feito na mão para strings tipo: dia-mes-ano-horario.
     Essa função é usada na rota / (rota principal).
     
     Arguments:
-        orig {str} -- string inicial.
+        orig: string inicial.
     
     Returns:
-        str -- string parseada.
+        string parseada.
     """    
     return orig[8:10]+'/'+orig[5:7]+'/'+orig[0:4]+' '+orig[11:13]+':'+orig[14:16]+':'+orig[17:]
 
-def getQuizes(user):
+def getQuizes(user: str) -> list:
     """Retorna os quizes no banco de dados. Caso o usuário seja um administrador, é retornado todos os quizes. Caso contrário, são retornados apenas os quizes que estão em aberto.
     Essa função é usada na rota / (rota principal).
     
     Arguments:
-        user {str} -- nome do usuário.
+        user: nome do usuário.
     
     Returns:
-        list -- uma lista de quizes com suas respectivas informações.
+        list: uma lista de quizes com suas respectivas informações.
     """    
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
@@ -86,16 +87,16 @@ def getQuizes(user):
     conn.close()
     return info
 
-def getUserQuiz(userid, quizid):
+def getUserQuiz(userid: int, quizid: int) -> list:
     """Retorna as tentativas  de resolução do quiz feito por um determinado usuário.
     Essa função é usada na rota / (rota principal).
     
     Arguments:
-        userid {int} -- id do usuário.
-        quizid {int} -- id do quiz.
+        userid: id do usuário.
+        quizid: id do quiz.
     
     Returns:
-        list -- uma lista dos envios do usuário para o quiz específico
+        list: uma lista dos envios do usuário para o quiz específico
     """    
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
@@ -104,16 +105,16 @@ def getUserQuiz(userid, quizid):
     conn.close()
     return info
 
-def setUserQuiz(userid, quizid, sent, answer, result):
+def setUserQuiz(userid: int, quizid: int, sent: str, answer: str, result: str):
     """Adiciona uma tentativa de resolução do quiz feito pelo usuário.
     Essa função é usada na rota / (rota principal).
     
     Arguments:
-        userid {int} -- id do usuário.
-        quizid {int} -- id do quiz.
-        sent {str} -- string do horário que a tentativa foi realizada.
-        answer {str} -- resposta do quiz.
-        result {str} -- resultado do quiz.
+        userid: id do usuário.
+        quizid: id do quiz.
+        sent: string do horário que a tentativa foi realizada.
+        answer: resposta do quiz.
+        result: resultado do quiz.
     """    
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
@@ -124,15 +125,15 @@ def setUserQuiz(userid, quizid, sent, answer, result):
     conn.commit()
     conn.close()
 
-def getQuiz(id, user):
+def getQuiz(id: int, user: str) -> list:
     """Retorna o quiz de acordo com o número do id. Caso o usuário seja um administrador, é retornado todos os quizes. Caso contrário, são retornados apenas os quizes que estão em aberto.
     Essa função é usada na rota / (rota principal).
     Arguments:
-        id {int} -- id do quiz.
-        user {str} -- nome do usuário.
+        id: id do quiz.
+        user: nome do usuário.
     
     Returns:
-        list -- uma lista dos quizes.
+        list: uma lista dos quizes.
     """
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
@@ -144,13 +145,13 @@ def getQuiz(id, user):
     conn.close()
     return info
 
-def setInfo(pwd, user):
+def setInfo(pwd: str, user: str):
     """Muda a senha do usuário no banco de dados.
     Essa função é usada na rota /pass.
     
     Arguments:
-        pwd {str} -- senha.
-        user {str} -- nome do usuário.
+        pwd: senha.
+        user: nome do usuário.
     """    
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()
@@ -158,15 +159,15 @@ def setInfo(pwd, user):
     conn.commit()
     conn.close()
 
-def getInfo(user):
+def getInfo(user: str) -> list:
     """Retorna as informações do usuário de acordo com o seu nome.
     Essa função é usada na rota /pass.
     
     Arguments:
-        user {str} -- nome do usuário.
+        user: nome do usuário.
     
     Returns:
-        lista -- lista contendo as informações do usuário como senha e tipo
+        lista: lista contendo as informações do usuário como senha e tipo
     """    
     conn = sqlite3.connect(DBNAME)
     cursor = conn.cursor()

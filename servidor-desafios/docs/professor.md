@@ -62,15 +62,3 @@ Onde,
 * results: Resultado esperado para a solução
 
 * diagnosis: Diagnóstico dado a tentativa
-
-## Página Inicial
-Veja a página [inicial](index.md) para mais detalhes.
-
-## Guia do aluno
-Veja a página [guia do aluno](aluno.md) para mais detalhes. 
-
-## Guia de desenvolvimento
-Veja a página [guia do desenvolvimento](desenvolvimento.md) para mais detalhes.
-
-## Documentação da API
-Veja a página [API](api.md) para mais detalhes.

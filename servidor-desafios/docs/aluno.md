@@ -17,16 +17,3 @@ Resultado daquela solução.
 
 É possível também trocar a senha do usuário nessa tela. Basta colocar a senha antiga e a senha nova para conseguir trocar.
 ![Trocar senha](./img/img2.png)
-
-
-## Página Inicial
-Veja a página [inicial](index.md) para mais detalhes.
-
-## Guia do professor
-Veja a página [guia do professor](professor.md) para mais detalhes.
-
-## Guia de desenvolvimento
-Veja a página [guia do desenvolvimento](desenvolvimento.md) para mais detalhes.
-
-## Documentação da API
-Veja a página [API](api.md) para mais detalhes.
