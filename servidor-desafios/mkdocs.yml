@@ -3,6 +3,8 @@ site_name: Servidor de Desafios
 theme:
   name: "material"
 
+site_url: "http://rmp.github.io/serv"
+
 plugins:
   - search
   - mkdocstrings:
@@ -12,4 +14,4 @@ plugins:
           rendering:
             show_source: true
       watch:
-        - src/
+        - ../src/
