@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+     <loc>http://rmp.github.io/serv/</loc>
+     <lastmod>2020-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>http://rmp.github.io/serv/aluno/</loc>
+     <lastmod>2020-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>http://rmp.github.io/serv/api/</loc>
+     <lastmod>2020-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>http://rmp.github.io/serv/desenvolvimento/</loc>
+     <lastmod>2020-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>http://rmp.github.io/serv/professor/</loc>
+     <lastmod>2020-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>
