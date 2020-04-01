@@ -9,8 +9,9 @@ from flask import Flask, request, jsonify, abort, make_response, session, render
 from flask_httpauth import HTTPBasicAuth
 from datetime import datetime
 import sqlite3
-import json
 import hashlib
+import json 
+import numbers
 
 DBNAME = './quiz.db'
 
@@ -26,9 +27,6 @@ def lambda_handler(event: dict, context: None)-> str:
         uma string com os testes executados e seus resultados.
     """    
     try:
-        import json 
-        import numbers
-        
         def not_equals(first, second):
             if isinstance(first, numbers.Number) and isinstance(second, numbers.Number):
                 return abs(first - second) > 1e-3
@@ -39,7 +37,8 @@ def lambda_handler(event: dict, context: None)-> str:
         code = event['code']
         args = event['args']
         resp = event['resp']
-        diag = event['diag'] 
+        diag = event['diag']
+         
         exec(code, locals())
         
         
