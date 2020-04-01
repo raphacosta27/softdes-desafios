@@ -28,3 +28,13 @@ ou
 ```bash
 $ python3 main.py --browser firefox
 ```
+
+## Unit tests
+Para realizar os testes da função lambda_handler, utilize o pytest. Para instalar: 
+```bash
+$ pip install pytest
+```
+Para executar: 
+```bash
+$ pytest lambda_tests.py
+```
